@@ -1,17 +1,22 @@
-# Enclave Minds – Technical Assessment (MERN)
+## Task Structure
 
-This repository contains solutions for all 7 tasks provided in the technical
-assessment email.
+- TASK 1 – React Dynamic Search  
+  React component that fetches users and implements real-time search.
 
-## Tasks Included
-1. Dynamic Search Filter (React)
-2. Secure API Endpoint (Node.js)
-3. Mongoose Schema Design
-4. JWT Authentication Middleware
-5. Multi-Step Form (React)
-6. Global Error Handling (Express)
-7. MongoDB Aggregation Pipeline
+- TASK 2 – Secure API Endpoint  
+  Express.js route with email and password validation.
 
-## Notes
-- Code is organized by frontend, backend, and database.
-- Each task is separated for easy review.
+- TASK 3 – Mongoose Schema  
+  Task Management schema with status enum and user reference.
+
+- TASK 4 – JWT Middleware  
+  Authentication middleware to validate Bearer tokens.
+
+- TASK 5 – Multi-Step Form  
+  React multi-step form with preserved state.
+
+- TASK 6 – Global Error Handler  
+  Centralized Express error-handling middleware.
+
+- TASK 7 – MongoDB Aggregation  
+  Aggregation pipeline to calculate revenue by category.
