@@ -1,0 +1,40 @@
+import React, { useState } from "react";
+
+const MultiStepForm = () => {
+  const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState({
+    profile: {},
+    experience: {}
+  });
+
+  return (
+    <div>
+      {step === 1 && (
+        <input
+          placeholder="Name"
+          onChange={e =>
+            setFormData({ ...formData, profile: { name: e.target.value } })
+          }
+        />
+      )}
+
+      {step === 2 && (
+        <input
+          placeholder="Experience"
+          onChange={e =>
+            setFormData({ ...formData, experience: { years: e.target.value } })
+          }
+        />
+      )}
+
+      <button onClick={() => setStep(step - 1)}>Back</button>
+      <button onClick={() => setStep(step + 1)}>Next</button>
+
+      {step === 2 && (
+        <button onClick={() => console.log(formData)}>Submit</button>
+      )}
+    </div>
+  );
+};
+
+export default MultiStepForm;
