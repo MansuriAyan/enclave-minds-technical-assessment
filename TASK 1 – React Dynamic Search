@@ -1,0 +1,40 @@
+import React, { useEffect, useState, useMemo } from "react";
+
+const DynamicSearchFilter = () => {
+  const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(data => setUsers(data.slice(0, 10)));
+  }, []);
+
+  const filteredUsers = useMemo(() => {
+    return users.filter(user =>
+      user.name.toLowerCase().includes(search.toLowerCase()) ||
+      user.email.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [search, users]);
+
+  return (
+    <div>
+      <h3>Dynamic User Search</h3>
+      <input
+        type="text"
+        placeholder="Search by name or email"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <ul>
+        {filteredUsers.map(user => (
+          <li key={user.id}>
+            {user.name} - {user.email}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default DynamicSearchFilter;
