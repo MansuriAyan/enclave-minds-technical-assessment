@@ -1,0 +1,13 @@
+export const validateData = (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !email.includes("@")) {
+    return res.status(400).json({ message: "Invalid email" });
+  }
+
+  if (!password || password.length < 8) {
+    return res.status(400).json({ message: "Password must be at least 8 characters" });
+  }
+
+  res.status(200).json({ message: "Valid data" });
+};
